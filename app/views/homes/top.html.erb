@@ -1,1 +1,9 @@
 <h1>TOPページ</h1>
+
+<% if user_signed_in? %>
+  <%= link_to "Log in", user_path(current_user) %>
+  <%= link_to "Sign up", user_path(current_user) %>
+<% else %>
+  <%= link_to "Log in", new_user_registration_path %>
+  <%= link_to "Sign up", new_user_session_path %>
+<% end %>
