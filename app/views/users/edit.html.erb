@@ -6,6 +6,18 @@
 
       <h2>User info</h2>
 
+      <div id="error_expanation">
+        <% if @user.errors.any? %>
+          <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+
       <%= form_with model: @user do |f| %>
 
         <label for="inputName">Name</label><br>

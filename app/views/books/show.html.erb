@@ -25,7 +25,9 @@
               <%= @book_find.body %>
             </td>
             <td>
-              <%= link_to 'Edit', edit_book_path(@book_find.id), class: "btn btn-success" %>
+              <% if @book_find.user == current_user %>
+                <%= link_to 'Edit', edit_book_path(@book_find.id), class: "btn btn-success" %>
+              <% end %>
             </td>
             <td>
                <% if @book_find.user == current_user %>
